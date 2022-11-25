@@ -18,7 +18,7 @@ def salva_dados():
     # recuperando dados do usuário
     plataforma = plataforma_entry.get()
     email = email_entry.get()
-    senha = password_entry.get()
+    senha = senha_entry.get()
     # valida os campos e confirma os dados com o usuário
     if len(plataforma) == 0 or len(senha) == 0:
         messagebox.showinfo(title="Oops", message="Não deixe os campos em branco!")
@@ -69,8 +69,8 @@ def procura_senha():
 
 # ---------------------------- PERSONALIZAÇÃO ------------------------------- #
 TELA_BG = "#FFA500"
-FIELD_COLORS = "#dddddd"
-FIELD_FONT_COLOR = "#008080"
+CAMPOS_COLORS = "#dddddd"
+CAMPOS_FONT_COLOR = "#008080"
 LABEL_COLOR = "white"
 FONT = ("Courier", 15, "normal")
 
@@ -89,34 +89,33 @@ email_label = Label(text="Email/Username", bg=TELA_BG, padx=20, font=FONT, fg=LA
 email_label.grid(column=0, row=2, sticky=W)
 
 # CAMPO DA SENHA
-password_label = Label(text="Password", bg=TELA_BG, padx=20, font=FONT, fg=LABEL_COLOR)
-password_label.grid(column=0, row=3,sticky=W)
+senha_label = Label(text="Senha", bg=TELA_BG, padx=20, font=FONT, fg=LABEL_COLOR)
+senha_label.grid(column=0, row=3,sticky=W)
 tela.grid_columnconfigure(1, weight=1)
 
 # ENTRADA DE DADOS
-plataforma_entry = Entry(width=30, bg=FIELD_COLORS, fg=FIELD_FONT_COLOR, font=FONT)
+plataforma_entry = Entry(width=30, bg=CAMPOS_COLORS, fg=CAMPOS_FONT_COLOR, font=FONT)
 plataforma_entry.insert(END, string="")
 plataforma_entry.grid(column=1, row=1)
 
 plataforma_entry.focus()
-email_entry = Entry(width=30, bg=FIELD_COLORS, fg=FIELD_FONT_COLOR, font=FONT)
+email_entry = Entry(width=30, bg=CAMPOS_COLORS, fg=CAMPOS_FONT_COLOR, font=FONT)
 email_entry.insert(END, string="")
 email_entry.grid(column=1, row=2)
 
-password_entry = Entry(width=30, bg=FIELD_COLORS, fg=FIELD_FONT_COLOR, font=FONT)
-password_entry.insert(END, string="")
-password_entry.grid(column=1, row=3)
+senha_entry = Entry(width=30, bg=CAMPOS_COLORS, fg=CAMPOS_FONT_COLOR, font=FONT)
+senha_entry.insert(END, string="")
+senha_entry.grid(column=1, row=3)
 
 # BOTOES
-procura_btn = Button(text="Search", bg='#20B2AA', padx=95, font=FONT, command=procura_senha)
+procura_btn = Button(text="Procurar", bg='#20B2AA', padx=95, font=FONT, command=procura_senha)
 procura_btn.grid(column=3, row=1)
 
 add_btn = Button(text="Add", bg='#20B2AA', width=36, command=salva_dados, font=FONT)
 add_btn.grid(column=1, row=5, columnspan=2, sticky=W)
 
-# Dummy widget for to get an empty rows
-dummy_label = Label(bg=TELA_BG)
-dummy_label.grid(column=0, row=4, sticky=W)
+# Cria espaço entre os campos e o botão de enviar os dados
+espaco_label = Label(bg=TELA_BG)
+espaco_label.grid(column=0, row=4, sticky=W)
 
 tela.mainloop()
-
